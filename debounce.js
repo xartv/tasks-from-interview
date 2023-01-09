@@ -10,7 +10,7 @@ function debounce(callback, delay) {
 	return (...args) => {
 		clearTimeout(timerId);
 		timerId = setTimeout(() => {
-			callback(...args)
+			callback.apply(this, args);
 		}, delay); 
 	}
 }
